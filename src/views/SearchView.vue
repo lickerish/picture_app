@@ -3,21 +3,40 @@
     <div class="search">
       <input id="search" placeholder="Search" v-model="searchValue" @input="handleInput"/>
     </div>
+    <div class="picture-presenter">
+      <ul>
+       <li v-for="picture in results" :key="picture.data[0].nasa_id">
+        <p>{{ picture.data[0].description }}</p>
+      </li>
+      </ul>
+
+    </div>
   </div>
 </template>
 
 <script>
+import debounce from 'lodash.debounce';
+
+const API = 'https://images-api.nasa.gov/search';
+const axios = require('axios');
+
 export default {
   name: 'SearchView',
   data() {
     return {
       searchValue: '',
+      results: [],
     };
   },
   methods: {
-    handleInput() {
-      console.log(this.searchValue)
-    },
+    // eslint-disable-next-line
+    handleInput: debounce(function () {
+      axios.get(`${API}?media_type=image&q=${this.searchValue}`).then((response) => {
+        this.results = response.data.collection.items;
+      }).catch((error) => {
+        console.log(error);
+      });
+    }, 500),
   },
 };
 </script>

@@ -50,6 +50,11 @@ export default {
             align-self: flex-end;
             margin-bottom: 20px;
             margin-left: 3px;
+
+            @media (max-width: 768px) {
+                height: 15px;
+                margin-bottom: 11px;
+            }
         }
     }
 
@@ -62,6 +67,11 @@ export default {
             font-size: 17px;
             letter-spacing: 1px;
             line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 9px;
+            line-height: 0px;
         }
     }
 }

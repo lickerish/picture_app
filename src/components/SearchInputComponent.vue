@@ -33,6 +33,12 @@ input {
     font-style: italic;
     transition: box-shadow .5s ease-out;
     text-align: center;
+
+    @media (max-width: 768px) {
+        margin-top: 10px;
+        height: 20px;
+        font-size: 11px;
+    }
 }
 
 input:focus {

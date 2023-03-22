@@ -1,8 +1,10 @@
 <template>
-  <div class="searchWrapper">
-    <BackgroundComponent />
-    <ClaimComponent />
-    <SearchInputComponent :value="searchValue" v-model="searchValue" @input="handleInput" />
+  <div :class="[{ flexStart: step === 1 }, 'searchWrapper']">
+    <transition name="fade">
+      <BackgroundComponent v-if="step === 0" />
+    </transition>
+    <ClaimComponent v-if="step === 0" />
+    <SearchInputComponent :value="searchValue" v-model="searchValue" @input="handleInput" :dark="step === 1" />
   </div>
 </template>
 
@@ -24,6 +26,8 @@ export default {
   },
   data() {
     return {
+      loading: false,
+      step: 0,
       searchValue: '',
       results: [],
     };
@@ -33,11 +37,14 @@ export default {
     handleInput: debounce(function (event) {
       console.log(event.target.value);
       console.log(this.searchValue);
+      this.loading = true;
       if (!this.searchValue) {
         return;
       }
       axios.get(`${API}?media_type=image&q=${this.searchValue}`).then((response) => {
         this.results = response.data.collection.items;
+        this.loading = false;
+        this.step = 1;
       }).catch((error) => {
         console.log(error);
       });
@@ -55,5 +62,19 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.flexStart {
+  justify-content: flex-start;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

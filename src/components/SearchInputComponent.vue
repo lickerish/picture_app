@@ -1,5 +1,5 @@
 <template>
-    <input id="search" placeholder="Search" @input="handleChange" />
+    <input id="search" :class="{ dark }" placeholder="Search" @input="handleChange" />
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
         modelValue: {
             type: String,
             required: true,
+        },
+        dark: {
+            type: Boolean,
+            default: false,
         },
     },
     emits: ['update:modelValue'],
@@ -49,5 +53,14 @@ input:focus {
 
 input:focus::placeholder {
     color: transparent;
+}
+
+.dark {
+    color: black;
+    border-bottom-color: black;
+}
+
+.dark:focus {
+    box-shadow: 0 10px 20px -8px rgba(black, .2);
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
-    <div class="searchInputWrapper">
-        <input id="search-input" placeholder="Search" v-model="searchValue" @input="handleInput" />
-    </div>
+    <input id="search-input" placeholder="Search" v-model="searchValue" @input="handleInput" />
 </template>
 
 <script>
@@ -35,28 +33,26 @@ export default {
 </script >
 
 <style lang="scss" scoped>
-.searchInputWrapper {
-    input {
-        height: 30px;
-        background: none;
-        border: 0;
-        font-size: 16px;
-        border-bottom: 1px solid #FFF;
-        font-family: 'Montserrat', sans-serif;
-        color: white;
-        font-style: italic;
-        transition: box-shadow .5s ease-out;
-        text-align: center;
-    }
+input {
+    height: 30px;
+    background: none;
+    border: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #FFF;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-style: italic;
+    transition: box-shadow .5s ease-out;
+    text-align: center;
+}
 
-    input:focus {
-        outline: none;
-        box-shadow: 0 9px 12px -10px rgba(255, 255, 255, 0.5);
-        font-style: normal;
-    }
+input:focus {
+    outline: none;
+    box-shadow: 0 9px 12px -10px rgba(255, 255, 255, 0.5);
+    font-style: normal;
+}
 
-    input:focus::placeholder {
-        color: transparent;
-    }
+input:focus::placeholder {
+    color: transparent;
 }
 </style>

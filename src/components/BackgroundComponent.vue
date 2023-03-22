@@ -20,4 +20,15 @@ export default {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+backgroundWrapper::after {
+    content: ''
+        background rgba;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+}
 </style>

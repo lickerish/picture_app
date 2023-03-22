@@ -1,5 +1,5 @@
 <template>
-    <input id="search" placeholder="Search" :value="value" @input="handleChange" />
+    <input id="search" placeholder="Search" @input="handleChange" />
 </template>
 
 <script>

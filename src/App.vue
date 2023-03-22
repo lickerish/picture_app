@@ -14,8 +14,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(180deg, rgba(18, 18, 18, 1) 0%, rgba(40, 40, 40, 1) 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
 </style>

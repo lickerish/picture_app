@@ -2,16 +2,7 @@
   <div class="searchWrapper">
     <BackgroundComponent />
     <ClaimComponent />
-    <div class="search">
-      <SearchInputComponent />
-    </div>
-    <!-- <div class="picture-presenter">
-      <ul>
-        <li v-for="picture in results" :key="picture.data[0].nasa_id">
-          <p>{{ picture.data[0].description }}</p>
-        </li>
-      </ul>
-    </div> -->
+    <SearchInputComponent />
   </div>
 </template>
 

@@ -16,6 +16,7 @@ module.exports = {
     'vuejs-accessibility/label-has-for': 'off',
     'jsx-a11y/label-has-associated-contro': 'off',
     'indent': 'off',
+    'max-len': ["error", { "code": 130 }],
   },
   overrides: [
     {

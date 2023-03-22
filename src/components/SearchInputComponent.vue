@@ -1,6 +1,6 @@
 <template>
     <div class="searchInputWrapper">
-        <input id="search" placeholder="Search" v-model="searchValue" @input="handleInput" />
+        <input id="search-input" placeholder="Search" v-model="searchValue" @input="handleInput" />
     </div>
 </template>
 
@@ -36,10 +36,6 @@ export default {
 
 <style lang="scss" scoped>
 .searchInputWrapper {
-    width: 250px;
-    display: flex;
-    flex-direction: row;
-
     input {
         height: 30px;
         background: none;
@@ -49,13 +45,13 @@ export default {
         font-family: 'Montserrat', sans-serif;
         color: white;
         font-style: italic;
-        transition: box-shadow .5s;
+        transition: box-shadow .5s ease-out;
         text-align: center;
     }
 
     input:focus {
         outline: none;
-        box-shadow: 0 9px 12px -10px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 9px 12px -10px rgba(255, 255, 255, 0.5);
         font-style: normal;
     }
 

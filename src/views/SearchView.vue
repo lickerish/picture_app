@@ -3,7 +3,6 @@
     <BackgroundComponent />
     <ClaimComponent />
     <div class="search">
-      <img src="@/assets/search_view/Moon_Gray.png" alt="Moon icon" />
       <SearchInputComponent />
     </div>
     <!-- <div class="picture-presenter">
@@ -46,19 +45,5 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.search {
-  width: 250px;
-  display: flex;
-  flex-direction: row;
-
-  img {
-    height: 30px;
-    padding-right: 3px;
-    opacity: 70%;
-    background: none;
-    // align-self: self-end;
-  }
 }
 </style>

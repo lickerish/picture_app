@@ -1,8 +1,11 @@
 <template>
     <div class="claimWrapper">
-        <h1 class="claim">picture.</h1>
+        <div class="logoWrapper">
+            <h1 class="claim">picture</h1>
+            <img src="@/assets/search_view/Moon_Gray.png" alt="Moon icon" />
+        </div>
         <p class="subclaim">
-            Find you beloved pictures from space and discover unknown</p>
+            Find your beloved pictures from space and discover unknown</p>
         <p class="subclaim">
             Type anything to start
         </p>
@@ -30,11 +33,36 @@ export default {
 
     .claim {
         font-size: 50px;
+        margin: 0;
+
+        @media (min-width: 768px) {
+            font-size: 100px;
+        }
+    }
+
+    .logoWrapper {
+        display: flex;
+        flex-direction: row;
+
+        img {
+            opacity: 0.9;
+            height: 25px;
+            align-self: flex-end;
+            margin-bottom: 20px;
+            margin-left: 3px;
+        }
     }
 
     .subclaim {
         margin: 20px 0 0 0;
         font-size: 13px;
+        font-weight: 300;
+
+        @media (min-width: 768px) {
+            font-size: 17px;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="claim-wrapper">
+    <div class="claimWrapper">
         <h1 class="claim">picture.</h1>
         <p class="subclaim">
             Find you beloved pictures from space and discover unknown</p>
@@ -16,7 +16,7 @@ export default {
 </script >
 
 <style lang="scss" scoped>
-.claim-wrapper {
+.claimWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;

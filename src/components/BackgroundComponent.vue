@@ -1,5 +1,5 @@
 <template>
-    <div class="background-wrapper" />
+    <div class="backgroundWrapper" />
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
 </script >
 
 <style lang="scss" scoped>
-.background-wrapper {
+.backgroundWrapper {
     position: fixed;
     top: 0;
     z-index: -1;

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="searchWrapper">
     <BackgroundComponent />
     <ClaimComponent />
     <div class="search">
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.searchWrapper {
   margin: 0;
   width: 100%;
   height: 100vh;

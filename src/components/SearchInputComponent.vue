@@ -1,33 +1,22 @@
 <template>
-    <input id="search-input" placeholder="Search" v-model="searchValue" @input="handleInput" />
+    <input id="search" placeholder="Search" :value="value" @input="handleChange" />
 </template>
 
 <script>
-import debounce from 'lodash.debounce';
-
-const API = 'https://images-api.nasa.gov/search';
-const axios = require('axios');
-
 export default {
     name: 'SearchInputComponent',
-    data() {
-        return {
-            searchValue: '',
-            results: [],
-        };
+    props: {
+        modelValue: {
+            type: String,
+            required: true,
+        },
     },
+    emits: ['update:modelValue'],
     methods: {
-        // eslint-disable-next-line
-        handleInput: debounce(function () {
-            if (!this.searchValue) {
-                return;
-            }
-            axios.get(`${API}?media_type=image&q=${this.searchValue}`).then((response) => {
-                this.results = response.data.collection.items;
-            }).catch((error) => {
-                console.log(error);
-            });
-        }, 500),
+        handleChange(event) {
+            console.log(event.target.value);
+            this.$emit('update:modelValue', event.target.value);
+        },
     },
 };
 </script >

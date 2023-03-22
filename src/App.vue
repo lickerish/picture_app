@@ -1,11 +1,22 @@
 <template>
   <div class="app">
-    <div class="nav">
-      <router-link to="/">picture</router-link>
-      <router-link to="/about">about</router-link>
-    </div>
     <router-view />
   </div>
 </template>
 
-<style lang="scss" scoped/>
+<style lang="scss">
+// Perfomance non-important in such small site
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+</style>

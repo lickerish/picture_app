@@ -1,27 +1,27 @@
 <template>
-  <div class="wrapper">
-    <div class="search">
-      <input id="search" placeholder="Search" v-model="searchValue" @input="handleInput"/>
-    </div>
-    <div class="picture-presenter">
-      <ul>
-       <li v-for="picture in results" :key="picture.data[0].nasa_id">
-        <p>{{ picture.data[0].description }}</p>
-      </li>
-      </ul>
-
-    </div>
+  <div class="searchWrapper">
+    <BackgroundComponent />
+    <ClaimComponent />
+    <SearchInputComponent :value="searchValue" v-model="searchValue" @input="handleInput" />
   </div>
 </template>
 
 <script>
+import ClaimComponent from '@/components/ClaimComponent.vue';
+import SearchInputComponent from '@/components/SearchInputComponent.vue';
+import BackgroundComponent from '@/components/BackgroundComponent.vue';
 import debounce from 'lodash.debounce';
+import axios from 'axios';
 
 const API = 'https://images-api.nasa.gov/search';
-const axios = require('axios');
 
 export default {
   name: 'SearchView',
+  components: {
+    ClaimComponent,
+    SearchInputComponent,
+    BackgroundComponent,
+  },
   data() {
     return {
       searchValue: '',
@@ -30,7 +30,12 @@ export default {
   },
   methods: {
     // eslint-disable-next-line
-    handleInput: debounce(function () {
+    handleInput: debounce(function (event) {
+      console.log(event.target.value);
+      console.log(this.searchValue);
+      if (!this.searchValue) {
+        return;
+      }
       axios.get(`${API}?media_type=image&q=${this.searchValue}`).then((response) => {
         this.results = response.data.collection.items;
       }).catch((error) => {
@@ -42,31 +47,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .wrapper {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 30px;
-    width: 100%;
-  }
-  .search {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-
-    input {
-      height: 30px;
-      border: 0;
-      border-bottom: 1px solid black;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      color: gray;
-      font-style: italic;
-    }
-
-    textarea:focus, input:focus {
-      outline: none;
-      border-bottom: 2px solid black;
-    }
-  }
+.searchWrapper {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 </style>

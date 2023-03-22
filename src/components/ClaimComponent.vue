@@ -36,7 +36,7 @@ export default {
         margin: 0;
 
         @media (min-width: 768px) {
-            font-size: 100px;
+            font-size: 80px;
         }
     }
 

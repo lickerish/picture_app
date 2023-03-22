@@ -1,9 +1,6 @@
 <template>
     <div class="claimWrapper">
-        <div class="logoWrapper">
-            <h1 class="claim">picture</h1>
-            <img src="@/assets/search_view/Moon_Gray.png" alt="Moon icon" />
-        </div>
+        <LogoComponent />
         <p class="subclaim">
             Find your beloved pictures from space and discover unknown</p>
         <p class="subclaim">
@@ -13,8 +10,13 @@
 </template>
 
 <script>
+import LogoComponent from '@/components/LogoComponent.vue';
+
 export default {
     name: 'ClaimComponent',
+    components: {
+        LogoComponent,
+    },
 };
 </script >
 
@@ -29,33 +31,6 @@ export default {
     p {
         margin: 0px;
         margin-bottom: 10px;
-    }
-
-    .claim {
-        font-size: 50px;
-        margin: 0;
-
-        @media (min-width: 768px) {
-            font-size: 80px;
-        }
-    }
-
-    .logoWrapper {
-        display: flex;
-        flex-direction: row;
-
-        img {
-            opacity: 0.9;
-            height: 25px;
-            align-self: flex-end;
-            margin-bottom: 20px;
-            margin-left: 3px;
-
-            @media (max-width: 768px) {
-                height: 15px;
-                margin-bottom: 11px;
-            }
-        }
     }
 
     .subclaim {

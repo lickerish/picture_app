@@ -1,5 +1,7 @@
 # picture_app
 
+<div style="text-align:center"><img src="picture_demo_gif.gif" /></div>
+
 ## Project setup
 ```
 npm install

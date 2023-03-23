@@ -27,14 +27,14 @@ export default {
 
 <style lang="scss" scoped>
 .item {
+    border-radius: 15px;
     width: 40vw;
     height: 250px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50px;
 
     @media (min-width: 768px) {
-        width: 25vw;
+        width: 27vw;
     }
 }
 </style>

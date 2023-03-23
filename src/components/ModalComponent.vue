@@ -50,9 +50,11 @@ export default {
 
 <style lang="scss" scoped>
 .modalWrapper {
+    border-radius: 15px;
     background: #f6f6f6;
     height: 100%;
     max-width: 100%;
+    width: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -77,22 +79,37 @@ export default {
     align-items: center;
     flex-direction: column;
 
+    @media (max-width: 1023px) {
+        .photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                border-radius: 8px;
+                height: 85%;
+                width: 85%;
+            }
+        }
+    }
+
     @media (min-width: 1024px) {
         flex-direction: row;
 
         .photo {
             min-width: 50%;
             margin-right: 20px;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                border-radius: 8px;
+                height: 80%;
+                width: 80%;
+            }
+
+            ;
         }
-    }
-}
-
-.photo {
-    width: 90%;
-    height: 50%;
-
-    img {
-        width: 100%;
     }
 }
 

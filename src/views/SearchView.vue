@@ -9,8 +9,10 @@
     <ClaimComponent v-if="step === 0" />
     <SearchInputComponent :value="searchValue" v-model="searchValue" @input="handleInput" :dark="step === 1" />
     <div class="results" v-if="results && !loading && step === 1">
-      <ItemComponent v-for="item in results" :item="item" :key="item.data[0].nasa_id" />
+      <ItemComponent v-for="item in results" :item="item" :key="item.data[0].nasa_id" @click="handleModalOpen(item)" />
     </div>
+    <LoaderComponent v-if="step === 1 && loading" />
+    <ModalComponent v-if="modalOpen" :item="modalItem" @closeModal="modalOpen = false" />
   </div>
 </template>
 
@@ -22,6 +24,8 @@ import debounce from 'lodash.debounce';
 import axios from 'axios';
 import LogoComponent from '@/components/LogoComponent.vue';
 import ItemComponent from '@/components/ItemComponent.vue';
+import ModalComponent from '@/components/ModalComponent.vue';
+import LoaderComponent from '@/components/LoaderComponent.vue';
 
 const API = 'https://images-api.nasa.gov/search';
 
@@ -33,6 +37,8 @@ export default {
     BackgroundComponent,
     LogoComponent,
     ItemComponent,
+    ModalComponent,
+    LoaderComponent,
   },
   data() {
     return {
@@ -40,9 +46,15 @@ export default {
       step: 0,
       searchValue: '',
       results: [],
+      modalOpen: false,
+      modalItem: null,
     };
   },
   methods: {
+    handleModalOpen(item) {
+      this.modalOpen = true;
+      this.modalItem = item;
+    },
     // eslint-disable-next-line
     handleInput: debounce(function (event) {
       console.log(event.target.value);

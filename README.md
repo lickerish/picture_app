@@ -1,31 +1,22 @@
 # picture_app
 
-<div style="text-align:center"><img src="picture_demo_gif.gif" /></div>
+![](picture_demo_gif.gif)
 
-## Project setup
-```
+```sh
+#Project setup
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+#Compiles and hot-reloads for development
 npm run serve
-```
 
-### Compiles and minifies for production
-```
+#Compiles and minifies for production
 npm run build
-```
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
+#Lints and fixes files
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## ToDo:
+- [ ] Add Backend app that handles requests to NASA https://github.com/lickerish/picture_app/issues/3
+- [ ] Add Edge backend app that handles authorization https://github.com/lickerish/picture_app/issues/4
+- [ ] Add cache on FE or BE https://github.com/lickerish/picture_app/issues/5
